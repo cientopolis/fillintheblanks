@@ -1,6 +1,6 @@
 Class {
 	#name : #BaselineOfFillInTheBlanks,
-	#superclass : #Object,
+	#superclass : #BaselineOf,
 	#category : #BaselineOfFillInTheBlanks
 }
 
