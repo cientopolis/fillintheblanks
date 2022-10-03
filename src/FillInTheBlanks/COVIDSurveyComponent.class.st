@@ -111,23 +111,33 @@ COVIDSurveyComponent >> renderResponseFormOn: html [
 				html text: ' minutos. Barbijo '.
 				self renderMaskStatusOn: html.
 				html text: ' y '.
-				self renderContactStatusOn: html ].
-		html formButton
-			id: 'accept-button';
-			bePrimary;
-			beSmall;
-			callback: [ self submit ];
-			with: 'Aceptar' ]
+				self renderContactStatusOn: html.
+				html space.
+				html formButton
+					id: 'accept-button';
+					bePrimary;
+					beSmall;
+					style: 'line-height: 1;';
+					callback: [ self submit ];
+					with: 'Agregar respuesta' ] ]
 ]
 
 { #category : #rendering }
 COVIDSurveyComponent >> renderSubmittedResponsesOn: html [
 
 	html heading
-	   style: 'margin-top: 16px';
+		style: 'margin-top: 16px';
 		level: 2;
 		with: 'Respuestas anteriores'.
-	responses reversed do: [ :each | self renderResponse: each on: html ]
+	responses reversed do: [ :each | self renderResponse: each on: html ].
+	responses notEmpty ifTrue: [ 
+		html form: [ 
+			html formButton
+				id: 'accept-button';
+				bePrimary;
+				beSmall;
+				callback: [ self show: DemographicsComponent new ];
+				with: 'Enviar todo y terminar' ] ]
 ]
 
 { #category : #rendering }
