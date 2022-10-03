@@ -41,7 +41,7 @@ DemographicsComponent >> renderContentOn: html [
 					self
 						comboFor: 'Máximo nivel educativo alcanzado'
 						with:
-							{ nil . 'Sin estudios'. 'Primeraio incompleto'. 'Primario completo'.
+							{ nil . 'Sin estudios'. 'Primario incompleto'. 'Primario completo'.
 							'No contesta' }
 						on: html.
 					self
