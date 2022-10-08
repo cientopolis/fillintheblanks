@@ -1,5 +1,5 @@
 Class {
-	#name : #Response,
+	#name : #FillInTheBlanksResponse,
 	#superclass : #Object,
 	#instVars : [
 		'timestamp',
@@ -9,6 +9,6 @@ Class {
 }
 
 { #category : #voyage }
-Response class >> isVoyageRoot [
+FillInTheBlanksResponse class >> isVoyageRoot [
 	^true.
 ]

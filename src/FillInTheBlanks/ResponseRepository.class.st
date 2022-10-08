@@ -6,5 +6,5 @@ Class {
 
 { #category : #accessing }
 ResponseRepository >> responses [ 
-	^Response selectAll.
+	^FillInTheBlanksResponse selectAll.
 ]
