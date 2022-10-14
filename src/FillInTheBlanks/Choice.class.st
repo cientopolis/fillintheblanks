@@ -9,7 +9,8 @@ Class {
 	#name : #Choice,
 	#superclass : #Object,
 	#instVars : [
-		'choices'
+		'choices',
+		'selected'
 	],
 	#category : #'FillInTheBlanks-Model'
 }
@@ -17,7 +18,9 @@ Class {
 { #category : #'instance creation' }
 Choice class >> choices: aCollectionOfStrings [
 
-	^ self new choices: aCollectionOfStrings
+	^ self new
+		  choices: aCollectionOfStrings;
+		  yourself
 ]
 
 { #category : #visiting }
@@ -35,4 +38,16 @@ Choice >> choices [
 Choice >> choices: aCollectionOfStrings [
 
 	^ choices := aCollectionOfStrings
+]
+
+{ #category : #accessing }
+Choice >> selected [
+
+	^ selected
+]
+
+{ #category : #accessing }
+Choice >> selected: anObject [
+
+	selected := anObject
 ]

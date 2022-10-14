@@ -6,7 +6,7 @@ FillInTheBlanksQuestion fromArray:
 ```
 "
 Class {
-	#name : #FillInTheBlanksQuestion,
+	#name : #FillInTheBlanksStatement,
 	#superclass : #Object,
 	#instVars : [
 		'elements'
@@ -15,7 +15,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-FillInTheBlanksQuestion class >> fromArray: anArrayOfStringsAndArrays [
+FillInTheBlanksStatement class >> fromArray: anArrayOfStringsAndArrays [
 
 	| question |
 	question := self new.
@@ -26,18 +26,24 @@ FillInTheBlanksQuestion class >> fromArray: anArrayOfStringsAndArrays [
 	^ question
 ]
 
+{ #category : #visiting }
+FillInTheBlanksStatement >> accept: aVisitor [
+
+	elements do: [ :each | each accept: aVisitor ]
+]
+
 { #category : #accessing }
-FillInTheBlanksQuestion >> add: anObject [ 
+FillInTheBlanksStatement >> add: anObject [ 
 	elements add: anObject
 ]
 
 { #category : #initialization }
-FillInTheBlanksQuestion >> initialize [
+FillInTheBlanksStatement >> initialize [
 	elements := OrderedCollection new. 
 ]
 
 { #category : #printing }
-FillInTheBlanksQuestion >> printOn: aStream [
+FillInTheBlanksStatement >> printOn: aStream [
 
 	elements do: [ :each | 
 		each class = Array
